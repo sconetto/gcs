@@ -1,8 +1,7 @@
 # Gogs - Open Source Self-Hosted Git Server
 
 ## Gogs - Introdução
-O Gogs é uma ferramenta Open Source de serviço de *Git* (um dos vários tipos de *VCS - Version Control System* existentes) que foi criada com o intuito de ser uma opção de fácil utilização, instalação, manutenção, leve, *cross-platform* e *self-hosted*. Criado com a linguagem de programação Go da Google sua sigla vem de
-**Go** **G**it **S**ervice - Gogs.
+O Gogs é uma ferramenta Open Source de serviço de *Git* (um dos vários tipos de *VCS - Version Control System* existentes) que foi criada com o intuito de ser uma opção de fácil utilização, instalação, manutenção, leve, *cross-platform* e *self-hosted*. Criado com a linguagem de programação Go da Google sua sigla vem de **Go** **G**it **S**ervice - Gogs.
 
 Por ter sido feito em Go e devido a linguagem ser de distribuição em multiplataformas (e devido a binários independentes), o Gogs consegue funcionar em qualquer sistema que consiga compilar Go, entre eles: Linux, Windows, Mac OS X e ARM, sendo este um diferencial do Gogs.
 
@@ -27,12 +26,71 @@ O *Self-Hosted* significa ter um serviço ou sistema no qual o administrador tem
 O Gogs, como os seus desenvolvedores o anunciam, é um sistema de fácil instalação e nesse tutorial vamos ensinar como você pode instalar e ter um servidor git Gogs rodando em sua máquina para os mais diversos projetos.
 
 ### Requerimentos de Hardware
- - Um Raspberry Pi ou um Droplet do Digital Ocean já tem o que é necessário para que você consiga rodar sua instância do Gogs. Há como também rodar em uma Docker de 64MB como um CaaS (Container as a Service - https://blog.docker.com/2016/02/containers-as-a-service-caas/)
+ - Um Raspberry Pi ou um Droplet do Digital Ocean já tem o que é necessário para que você consiga rodar sua instância do Gogs. Há como também rodar em uma Docker de 64MB como um [CaaS](https://blog.docker.com/2016/02/containers-as-a-service-caas/) (Container as a Service)
  - Uma CPU dual-core com 512MB de RAM é o mínimo para uma instância que será utilizada por times.
  - CPUs com mais cores são necessárias quando o time que usufruirá da instância for grande, entretanto o uso de RAM permanece baixo.
 
 ### Pré-requisistos
- - Banco de Dados
+ - Banco de Dados (Necessário escolher um dos listados abaixo):
+ 	+ [MySQL](https://www.mysql.com/downloads/): Versão >= 5.5.3
+ 	+ [PostgreSQL](https://www.postgresql.org/download/)
+ 	+ [MSSQL](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+ 	+ [TiDB](https://github.com/pingcap/tidb) (Experimental, conexão via protocolo MySQL)
+ 	+ ou **Nenhum** com SQLite3
+ 	+ **LEMBRE-SE**: Use `scripts/mysql.sql` para criar um database chamado `gogs` (*default*). Se você criá-lo manualmente certifique-se que o encoding é `utf8mb4`.
+ - [Git](https://git-scm.com/downloads) (bash)
+   + Versão >= 1.7.1 para ambos servidor e cliente
+   + No Windows é recomendado sempre a última Versão
+ - Servidor SSH funcional
+   + **Ignore se você for usar apenas o protocolo HTTP/HTTPS ou se irá usar o *builtin SSH Server* (Servidor SSH pré-instalado)**
+   + É recomendado o [Cygwin OpenSSH](http://docs.oracle.com/cd/E24628_01/install.121/e22624/preinstall_req_cygwin_ssh.htm#EMBSC150) ou [Copssh](https://www.itefix.net/copssh) no Windows
+
+Há 5 formas de instalar o Gogs:
+ - [Instalar pelos binários](https://gogs.io/docs/installation/install_from_binary.html)
+ - [Instalar pela *source*](https://gogs.io/docs/installation/install_from_source.html)
+ - [Instalar por pacotes](https://gogs.io/docs/installation/install_from_packages.html)
+ - [Instalar com o Vagrant](https://github.com/geerlingguy/ansible-vagrant-examples/tree/master/gogs)
+ - [Instalar em um Container Docker](https://github.com/gogits/gogs/tree/master/docker)
+
+### Instalando em um Container Docker
+Esta é uma das maneiras mais fáceis de instalar o Gogs mas antes de seguir para instalação certifique-se de ter o *Docker* instalado em sua máquina. A seguir como instalar em uma máquina linux Ubuntu:
+1. Instale os seguintes pacotes para permitir ao `apt` usar repositórios sobre o protocolo HTTPS:
+```sh
+$ sudo apt-get install apt-transport-https
+$ sudo apt-get install ca-certificates
+$ sudo apt-get install curl
+$ sudo apt-get install software-properties-common
+```
+2. Adicione a chave GPG oficial do Docker
+```sh
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+Verifique que o *fingerprint* da chave é `9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88`.
+```sh
+$ sudo apt-key fingerprint 0EBFCD88
+pub   4096R/0EBFCD88 2017-02-22
+Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88 
+uid             Docker Release (CE deb) <docker@docker.com> 
+sub   4096R/F273FCD8 2017-02-22
+```
+**`ATENÇÃO`**: O *fingerprint* da chave pode mudar devido a atualizações, sempre verique [aqui](https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository) sua chave.
+    
+3. Use o seguinte comando para configurar o repositório da versão *stable* (estável):
+```sh
+$ sudo add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+**`ATENÇÃO`**: certifique-se da sua arquitetura, no exemplo acima o repositório adicionado está atrelado a arquitetura *64 bits*.
+
+5. Atualize o índice de pacotes do `apt` e por fim instale o Docker
+```sh
+$ sudo apt-get update
+$ sudo apt-get install docker docker.io
+```
+
+
 
 ###### Referências
  - https://gogs.io/docs
