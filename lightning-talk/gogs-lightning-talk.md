@@ -10,6 +10,12 @@ Por ter sido feito em Go e devido a linguagem ser de distribuição em multiplat
 O *Self-Hosted* significa ter um serviço ou sistema no qual o administrador tem controle total sobre a ferramenta, devido a sua hospedagem ser feita em uma máquina que está em posse do administrador, conseguindo então gerenciar a instalação, execução e demais tarefas envolvidas, além de ter controle nos arquivos, nos usuários, níveis de segurança, permissões, entre outros. Mas fica em responsabilidade do administrador, também, toda a manutenção, eventuais updates e problemas que possam surgir durante o uso do serviço, para tal o Gogs oferece um fórum para usuários.
 
 ## Vantagens
+- Total controle sobre o serviço
+- Privacidade
+- Segurança
+- Independência
+- Gratuidade
+- Portabilidade
 
 ## Desvantagens
 
