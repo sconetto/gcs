@@ -16,14 +16,29 @@ O *Self-Hosted* significa ter um serviço ou sistema no qual o administrador tem
 - Independência
 - Gratuidade
 - Portabilidade
+- Facilidades (Flexibilidade)
+- Integração
 
 ## Desvantagens
+- Custo
+- Manutenção
 
 ## Instalação
+O Gogs, como os seus desenvolvedores o anunciam, é um sistema de fácil instalação e nesse tutorial vamos ensinar como você pode instalar e ter um servidor git Gogs rodando em sua máquina para os mais diversos projetos.
+
+### Requerimentos de Hardware
+ - Um Raspberry Pi ou um Droplet do Digital Ocean já tem o que é necessário para que você consiga rodar sua instância do Gogs. Há como também rodar em uma Docker de 64MB como um CaaS (Container as a Service - https://blog.docker.com/2016/02/containers-as-a-service-caas/)
+ - Uma CPU dual-core com 512MB de RAM é o mínimo para uma instância que será utilizada por times.
+ - CPUs com mais cores são necessárias quando o time que usufruirá da instância for grande, entretanto o uso de RAM permanece baixo.
+
+### Pré-requisistos
+ - Banco de Dados
 
 ###### Referências
  - https://gogs.io/docs
+ - https://github.com/gogits/gogs
  - https://git-scm.com/doc
  - https://golang.org/doc/
  - https://opensource.org/
  - https://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%B5es
+ - https://fjorgemota.com/gogs-um-sistema-versatil-para-hospedagem-de-repositorios-git/
