@@ -10,17 +10,17 @@ O *Self-Hosted* significa ter um serviço ou sistema no qual o administrador tem
 
 ## Vantagens
 - Total controle sobre o serviço
-- Privacidade
-- Segurança
-- Independência
-- Gratuidade
-- Portabilidade
-- Facilidades (Flexibilidade)
-- Integração
+- Privacidade - controle da base de usuários e possibilidade de repositório de privados;
+- Segurança - realizar o controle de papéis de um usuário dentro de um repositório;
+- Independência - esse é um quesito importante, já que o serviço independe de internet, por exemplo, para estar disponível;
+- Gratuidade de Software - escrita na linguagem de programação de código aberto Go, da Google, esse serviço é gratuito;
+- Portabilidade/Multiplataforma - o Gogs roda em Linux, Windows e Mac;
+- Facilidades (Flexibilidade) - * 
+- Integração - possibilidade de integração com alguns outros serviços (por exemplo, WebHook para integração de Slack ou para envio de e-mail). O Gogs também fornece integração com alguns projetos facilmente, como o Taiga.io, por exemplo, facilitando e muito o seu workflow;
 
 ## Desvantagens
-- Custo
-- Manutenção
+- Custo de Hardware - para a hospedagem do serviço é necessário um servidor. Para isso há o custo de uma máquina física ou virtual;
+- Manutenção - atualizações e upgrades são feitos manualmente tendo que ser parado o serviço.
 
 ## Instalação
 O Gogs, como os seus desenvolvedores o anunciam, é um sistema de fácil instalação e nesse tutorial vamos ensinar como você pode instalar e ter um servidor git Gogs rodando em sua máquina para os mais diversos projetos.
@@ -74,7 +74,7 @@ uid             Docker Release (CE deb) <docker@docker.com>
 sub   4096R/F273FCD8 2017-02-22
 ```
 **`ATENÇÃO`**: O *fingerprint* da chave pode mudar devido a atualizações, sempre verique [aqui](https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository) sua chave.
-    
+
 3. Use o seguinte comando para configurar o repositório da versão *stable* (estável):
 ```sh
 $ sudo add-apt-repository \
