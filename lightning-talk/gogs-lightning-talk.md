@@ -54,6 +54,7 @@ Há 5 formas de instalar o Gogs:
 
 ### Instalando em um Container Docker
 Esta é uma das maneiras mais fáceis de instalar o Gogs mas antes de seguir para instalação certifique-se de ter o *Docker* instalado em sua máquina. A seguir como instalar em uma máquina linux Ubuntu:
+
 1. Instale os seguintes pacotes para permitir ao `apt` usar repositórios sobre o protocolo HTTPS:
 ```sh
 $ sudo apt-get install apt-transport-https
@@ -61,6 +62,7 @@ $ sudo apt-get install ca-certificates
 $ sudo apt-get install curl
 $ sudo apt-get install software-properties-common
 ```
+
 2. Adicione a chave GPG oficial do Docker
 ```sh
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -69,12 +71,12 @@ Verifique que o *fingerprint* da chave é `9DC8 5822 9FC7 DD38 854A E2D8 8D81 80
 ```sh
 $ sudo apt-key fingerprint 0EBFCD88
 pub   4096R/0EBFCD88 2017-02-22
-Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88 
-uid             Docker Release (CE deb) <docker@docker.com> 
+Key fingerprint = 9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid             Docker Release (CE deb) <docker@docker.com>
 sub   4096R/F273FCD8 2017-02-22
 ```
 **`ATENÇÃO`**: O *fingerprint* da chave pode mudar devido a atualizações, sempre verique [aqui](https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository) sua chave.
-    
+
 3. Use o seguinte comando para configurar o repositório da versão *stable* (estável):
 ```sh
 $ sudo add-apt-repository \
@@ -84,24 +86,26 @@ $ sudo add-apt-repository \
 ```
 **`ATENÇÃO`**: certifique-se da sua arquitetura, no exemplo acima o repositório adicionado está atrelado a arquitetura *64 bits*.
 
-5. Atualize o índice de pacotes do `apt` e por fim instale o Docker
+4. Atualize o índice de pacotes do `apt` e por fim instale o Docker
 ```sh
 $ sudo apt-get update
 $ sudo apt-get install docker docker.io
 ```
 
-6. Depois de instalado a Docker é preciso baixar o Gogs, é possível baixar a última versão estável do Gogs pela Docker (recomendado), basta rodar o simples comando 
+5. Depois de instalado a Docker é preciso baixar o Gogs, é possível baixar a última versão estável do Gogs pela Docker (recomendado), basta rodar o simples comando
 ```sh
 docker pull gogs/gogs
 ```
 Caso você tenha baixado o projeto direto pelo Github do Gogs será preciso criar o container e executar os binários descompactados.
 
-7. Após o termino do *download* da imagem do Gogs para Docker execute o seguinte comando para rodar o container:
+6. Após o termino do *download* da imagem do Gogs para Docker execute o seguinte comando para rodar o container:
 ```sh
 docker run -d --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs
 ```
 
-8. O Gogs já está executando, agora basta acessar o endereço **http://127.0.0.1:10080/** ou **http://localhost:10080/**, nesse primeiro momneto será solicitado a configuração do repositório, no *Tipo de Banco de Dados* configure o SQLite, é a forma mais simples e a que vamos usar nesse tutorial, mude o endereço do campo *URL do Aplicativo* de **http://localhost:3000/** para **http://127.0.0.1:10080/** e o campo *Porta SSH* de **22** para **10022**. Agora basta clicar no fim da página em **Instalar Gogs** para finalizar as configurações. **OBS**: Caso queira modificar alguma configuração do gogs procure a pasta `custom/conf/app.ini` as configurações ficam neste arquivo `app.ini`, neste [link](https://gogs.io/docs/advanced/configuration_cheat_sheet) você consegue ver como configurar seu Gogs.
+7. O Gogs já está executando, agora basta acessar o endereço **http://127.0.0.1:10080/** ou **http://localhost:10080/**, nesse primeiro momneto será solicitado a configuração do repositório, no *Tipo de Banco de Dados* configure o SQLite, é a forma mais simples e a que vamos usar nesse tutorial, mude o endereço do campo *URL do Aplicativo* de **http://localhost:3000/** para **http://127.0.0.1:10080/** e o campo *Porta SSH* de **22** para **10022**. Agora basta clicar no fim da página em **Instalar Gogs** para finalizar as configurações.
+
+**OBS**: Caso queira modificar alguma configuração do gogs procure a pasta `custom/conf/app.ini` as configurações ficam neste arquivo `app.ini`, neste [link](https://gogs.io/docs/advanced/configuration_cheat_sheet) você consegue ver como configurar seu Gogs.
 
 9. Agora, com o Gogs configurado, é preciso criar uma conta de usuário, que será assumida automaticamente pelo Gogs como uma conta de **administrador**. Acesse **http://127.0.0.1:10080/user/sign_up** e crie um usuário com senha e e-mail, confirme a senha e o captcha solicitado. Após criada a conta do administrador o Gogs te redirecionará para a página de login, insira os dados e o Gogs te redirecionará para a sua *dashboard*. Pronto, seu Gogs já está configurado e executando, basta usá-lo!
 
