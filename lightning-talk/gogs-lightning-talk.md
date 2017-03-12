@@ -117,7 +117,7 @@ Outra forma de realizar a instalação do Gogos através de binário. A seguir c
 $ sudo apt-get install unzip
 ```
 
-2. Faça o download do arquivo (a versão utilizada para esse tutorial foi a v0.10.8 para SO Linux 64 bits)
+2. Faça o download do arquivo (a versão utilizada para esse tutorial foi a v0.10.8 para Ubuntu 64 bits)
 ```sh
 $ wget https://dl.gogs.io/0.10.8/linux_amd64.zip
 ```
