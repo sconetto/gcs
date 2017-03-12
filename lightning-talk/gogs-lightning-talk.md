@@ -10,17 +10,17 @@ O *Self-Hosted* significa ter um serviço ou sistema no qual o administrador tem
 
 ## Vantagens
 - Total controle sobre o serviço
-- Privacidade - controle da base de usuários e possibilidade de repositório de privados;
-- Segurança - realizar o controle de papéis de um usuário dentro de um repositório;
-- Independência - esse é um quesito importante, já que o serviço independe de internet, por exemplo, para estar disponível;
-- Gratuidade de Software - escrita na linguagem de programação de código aberto Go, da Google, esse serviço é gratuito;
+- Privacidade - Controle da base de usuários e possibilidade de repositório de privados;
+- Segurança - Realizar o controle de papéis de um usuário dentro de um repositório;
+- Independência - Esse é um quesito importante, já que o serviço independe de internet, por exemplo, para estar disponível;
+- Gratuidade de Software - Escrita na linguagem de programação de código aberto Go, da Google, esse serviço é gratuito, totalmente Open Source;
 - Portabilidade/Multiplataforma - o Gogs roda em Linux, Windows e Mac;
-- Facilidades (Flexibilidade) - * 
-- Integração - possibilidade de integração com alguns outros serviços (por exemplo, WebHook para integração de Slack ou para envio de e-mail). O Gogs também fornece integração com alguns projetos facilmente, como o Taiga.io, por exemplo, facilitando e muito o seu workflow;
+- Facilidades (Flexibilidade) - O Gogs pode ser executado, instalado e rodar em vários tipos de instâncias e em vários lugares, por ser leve é muito fácil ter o seu próprio git;
+- Integração - Possibilidade de integração com alguns outros serviços (por exemplo, WebHook para integração de Slack ou para envio de e-mail). O Gogs também fornece integração com alguns projetos facilmente, como o Taiga.io, por exemplo, facilitando e muito o seu workflow;
 
 ## Desvantagens
-- Custo de Hardware - para a hospedagem do serviço é necessário um servidor. Para isso há o custo de uma máquina física ou virtual;
-- Manutenção - atualizações e upgrades são feitos manualmente tendo que ser parado o serviço.
+- Custo de Hardware - Para a hospedagem do serviço é necessário um servidor. Para isso há o custo de uma máquina física ou virtual;
+- Manutenção - Atualizações e upgrades são feitos manualmente tendo que ser parado o serviço.
 
 ## Instalação
 O Gogs, como os seus desenvolvedores o anunciam, é um sistema de fácil instalação e nesse tutorial vamos ensinar como você pode instalar e ter um servidor git Gogs rodando em sua máquina para os mais diversos projetos.
@@ -109,8 +109,8 @@ docker run -d --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs
 
 9. Agora, com o Gogs configurado, é preciso criar uma conta de usuário, que será assumida automaticamente pelo Gogs como uma conta de **administrador**. Acesse **http://127.0.0.1:10080/user/sign_up** e crie um usuário com senha e e-mail, confirme a senha e o captcha solicitado. Após criada a conta do administrador o Gogs te redirecionará para a página de login, insira os dados e o Gogs te redirecionará para a sua *dashboard*. Pronto, seu Gogs já está configurado e executando, basta usá-lo!
 
-### Instalando pelos binários 
-Outra forma de realizar a instalação do Gogos através de binário. A seguir como instalar em uma máquina linux Ubuntu:
+### Instalando pelos binários
+Outra forma de realizar a instalação do Gogs através de binário. A seguir como instalar em uma máquina linux Ubuntu:
 
 1. Antes de iniciar, certifique-se que já tenha um descompactador instalado (exemplo, unzip)
 ```sh
