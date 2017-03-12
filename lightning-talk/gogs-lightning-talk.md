@@ -109,6 +109,35 @@ docker run -d --name=gogs -p 10022:22 -p 10080:3000 -v /var/gogs:/data gogs/gogs
 
 9. Agora, com o Gogs configurado, é preciso criar uma conta de usuário, que será assumida automaticamente pelo Gogs como uma conta de **administrador**. Acesse **http://127.0.0.1:10080/user/sign_up** e crie um usuário com senha e e-mail, confirme a senha e o captcha solicitado. Após criada a conta do administrador o Gogs te redirecionará para a página de login, insira os dados e o Gogs te redirecionará para a sua *dashboard*. Pronto, seu Gogs já está configurado e executando, basta usá-lo!
 
+### Instalando pelos binários 
+Outra forma de realizar a instalação do Gogos através de binário. A seguir como instalar em uma máquina linux Ubuntu:
+
+1. Antes de iniciar, certifique-se que já tenha um descompactador instalado (exemplo, unzip)
+```sh
+$ sudo apt-get install unzip
+```
+
+2. Faça o download do arquivo (a versão utilizada para esse tutorial foi a v0.10.8 para SO Linux 64 bits)
+```sh
+$ wget https://dl.gogs.io/0.10.8/linux_amd64.zip
+```
+
+3. Realize a descompactação do arquivo
+```sh
+$ unzip linux_amd64.zip
+```
+
+4. Acesse a pasta que foi descompactada (nesse caso chamada de gogs/)
+```sh
+$ cd gogs/
+```
+
+5. Para execução do Gogs rode o comando
+```sh
+$ ./gogs web
+```
+
+6. Pronto! A partir de agora o Gogs já está sendo executado. Para realizar a primeira configuração basta acessar **http://0.0.0.0:3000**.
 
 ###### Referências
  - https://gogs.io/docs
