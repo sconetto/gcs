@@ -1,0 +1,19 @@
+# git remote
+git remote -v                                                 //Listar todos os remotos
+git remote add <nome_do_remoto> <url_do_repositorio_remoto>   //Adicionar conexão ao remoto
+git remote rm <nome_do_remoto>                                //Remover conexão com o remoto
+git remote rename <nome_antigo> <novo_nome>                   //Renomear o remoto no local
+
+# git log
+git log --oneline                                             //Listar os commits em apenas umas linha (hash simples - mensagem do commit)
+
+# git diff
+git diff --cached/--staged                                    //Mostra os arquivos modificados, mesmos os adicionados ao cache
+
+# git show
+git show <hash_commit>                                        //Mostra para aquele commit o que foi feito, modificações e as mensagens
+
+# git add
+git add <nome_do_arquivo> -p                                  //Verificar e adicionar o arquivo por partes
+
+#
