@@ -9,6 +9,7 @@ git log --oneline                                             //Listar os commit
 
 # git diff
 git diff --cached/--staged                                    //Mostra os arquivos modificados, mesmos os adicionados ao cache
+git diff master <nome_da_branch>                              //Faz o diff dos arquivos na master com a branch digitada
 
 # git show
 git show <hash_commit>                                        //Mostra para aquele commit o que foi feito, modificações e as mensagens
@@ -16,4 +17,44 @@ git show <hash_commit>                                        //Mostra para aque
 # git add
 git add <nome_do_arquivo> -p                                  //Verificar e adicionar o arquivo por partes
 
-#
+# git stash
+git stash                                                     //Salva um backup de mudanças unstaged ou de arquivos criados para serem tratados posteriormente
+git stash apply                                               //Aplica o stash salvo
+git stash list                                                //Lista todos os stashs
+git stash pop <identificador>                                 //Retorna o backup como estado atual de trabalho
+git stash drop <identificador>                                //Apaga stash salvos
+
+# git clean
+git clean -f                                                  //Remove todos os arquivos untracked
+
+# git checkout
+git checkout -b <nome_da_branch>                              //Alterna para uma nova branch
+git checkout <nome_da_branch>                                 //Alterna para a branch (a branch deve existir)
+git checkout <nome_do_arquivo>                                //Limpa as modificações (unstaged)
+git checkout <nome_do_arquivo> -p                             //Limpar modificações em partes (unstaged)
+
+# git branch
+git branch -a                                                 //Lista todas as branches (inclusive do remoto)
+git branch -d <nome_da_branch>                                //Deleta a branch com o nome digitado
+
+# git push
+git push origin master:<nome_da_branch>                       //Pusha da branch master para a branch digitada
+git push origin :<nome_da_branch>                             //Deleta a branch no remoto
+
+# git rebase
+git rebase <nome_da_branch>                                   //Faz o rebase do local com a branch do remoto
+
+# git tag
+git tag <nome_da_tag>                                         //Cria a tag a partir da HEAD
+git tag <nome_da_tag> <hash_commit>                           //Cria a tag a partir do commit do hash
+git tag -l                                                    //Lista as tags
+git tag -d <nome_da_tag>                                      //Deleta as tags criadas
+
+# git reset
+git reset --hard/--soft <remoto>/<branch>                     //Reseta o remoto (hard - igual o remoto/soft - permite trabalhar nas mudanças)
+
+# git config
+git config color.ui true                                      //Ativa o color.ui no git
+git config user.email "email@email.me"
+git config user.name "Email Mail"
+git config --global core.editor "vim"
